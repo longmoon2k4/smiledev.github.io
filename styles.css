@@ -6,15 +6,18 @@ body {
     position: relative;
 }
 footer {
-    position: absolute;
+    position: fixed; /* Đổi từ absolute sang fixed */
     bottom: 0;
-    width: 100%;
+    left: 50%; /* Đặt vị trí từ bên trái */
+    transform: translateX(-50%); /* Để căn giữa */
+    width: auto; /* Để tự động điều chỉnh chiều rộng */
     height: 50px;
     background-color: #000000;
     color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 10px; /* Thêm một chút padding cho đẹp */
 }
 .heart {
             position: absolute;
