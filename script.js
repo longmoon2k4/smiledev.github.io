@@ -1,17 +1,21 @@
-document.addEventListener('mousemove', function(e) {
+function createHeart(e) {
     const heart = document.createElement('div');
     heart.className = 'heart';
 
-    // Tính toán vị trí ngẫu nhiên xung quanh con trỏ chuột
-    const offsetX = (Math.random() - 0.5) * 50; // Phân bố ngẫu nhiên trong khoảng -25 đến 25 pixels
-    const offsetY = (Math.random() - 0.5) * 50; // Phân bố ngẫu nhiên trong khoảng -25 đến 25 pixels
+    // Tính toán vị trí ngẫu nhiên xung quanh vị trí chạm
+    const offsetX = (Math.random() - 0.5) * 50; // Phân bố ngẫu nhiên
+    const offsetY = (Math.random() - 0.5) * 50;
 
-    heart.style.left = `${e.clientX + offsetX}px`;
-    heart.style.top = `${e.clientY + offsetY}px`;
+    const touch = e.touches ? e.touches[0] : e; // Lấy vị trí chạm
+    heart.style.left = `${touch.clientX + offsetX}px`;
+    heart.style.top = `${touch.clientY + offsetY}px`;
     
     document.body.appendChild(heart);
     
     setTimeout(() => {
         heart.remove();
     }, 500);
-});
+}
+
+document.addEventListener('mousemove', createHeart);
+document.addEventListener('touchmove', createHeart);
