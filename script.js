@@ -1,3 +1,20 @@
+// Kiểm tra mật khẩu và chuyển hướng trangs
+
+document.getElementById('passwordForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Ngăn chặn hành động mặc định của form
+
+    const password = document.getElementById('password').value;
+    
+    // Kiểm tra mật khẩu
+    if (password === '18072001') {
+        window.location.href = 'sc.html';
+    } else {
+        alert('Mật khẩu sai, vui lòng thử lại.'); // Thông báo lỗi
+    }
+});
+
+// Tạo trái tim rơi từ trên xuống dưới
+
 function createHeart() {
     const heart = document.createElement('div');
     heart.classList.add('heart');
